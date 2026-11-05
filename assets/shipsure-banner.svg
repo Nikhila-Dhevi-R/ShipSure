@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+  <title id="title">ShipSure — evidence-first deployment diagnosis</title>
+  <desc id="desc">Blue ShipSure banner showing an evidence-to-cause-to-safe-fix workflow and supported deployment platforms.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071b46"/>
+      <stop offset="0.56" stop-color="#0757c8"/>
+      <stop offset="1" stop-color="#138bd4"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123e83" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#0a285a" stop-opacity="0.92"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="12%" r="68%">
+      <stop offset="0" stop-color="#52d7ff" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#52d7ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#b9e9ff" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="340" rx="28" fill="url(#background)"/>
+  <rect width="1200" height="340" rx="28" fill="url(#glow)"/>
+  <rect width="1200" height="340" rx="28" fill="url(#grid)"/>
+  <circle cx="1090" cy="42" r="118" fill="#70e0ff" opacity="0.06"/>
+  <circle cx="1100" cy="285" r="150" fill="#70e0ff" opacity="0.05"/>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" fill="#fff">
+    <g transform="translate(66 61)">
+      <path d="M12 13h34l14 14v34H12z" fill="none" stroke="#8de8ff" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M46 13v15h14M23 38h25M23 49h14" fill="none" stroke="#8de8ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m39 57 7 7 13-15" fill="none" stroke="#8de8ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="150" y="112" font-size="62" font-weight="750" letter-spacing="-2">ShipSure</text>
+    <text x="68" y="164" font-size="25" font-weight="600" fill="#d9f5ff">Evidence-first deployment diagnosis</text>
+    <text x="68" y="198" font-size="17" fill="#c2e7ff">Diagnose with evidence. Repair with approval. Verify what changed.</text>
+
+    <g font-size="13" font-weight="700" letter-spacing="1.1">
+      <rect x="68" y="220" width="142" height="34" rx="17" fill="#ffffff" fill-opacity="0.14" stroke="#bdefff" stroke-opacity="0.55"/>
+      <text x="139" y="242" text-anchor="middle">MCP SERVER</text>
+      <rect x="222" y="220" width="77" height="34" rx="17" fill="#ffffff" fill-opacity="0.14" stroke="#bdefff" stroke-opacity="0.55"/>
+      <text x="260" y="242" text-anchor="middle">CLI</text>
+      <rect x="311" y="220" width="196" height="34" rx="17" fill="#ffffff" fill-opacity="0.14" stroke="#bdefff" stroke-opacity="0.55"/>
+      <text x="409" y="242" text-anchor="middle">CODEX + CLAUDE SKILLS</text>
+    </g>
+    <text x="68" y="298" font-size="14" fill="#d6efff">Python / FastAPI  ·  Node / Vite  ·  Docker  ·  GitHub Actions  ·  Vercel  ·  AWS</text>
+
+    <g transform="translate(716 67)">
+      <rect width="418" height="206" rx="20" fill="url(#card)" stroke="#a9e8ff" stroke-opacity="0.42" stroke-width="1.5"/>
+      <text x="28" y="38" font-size="12" font-weight="700" letter-spacing="1.7" fill="#8ce6ff">FROM SIGNAL TO SAFE ACTION</text>
+      <path d="M82 96h253" stroke="#76dfff" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="5 7"/>
+      <g text-anchor="middle">
+        <circle cx="80" cy="96" r="31" fill="#0d63cf" stroke="#8ee8ff" stroke-width="2"/>
+        <path d="M68 89h24M68 96h18M68 103h13" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        <text x="80" y="151" font-size="13" font-weight="700">EVIDENCE</text>
+        <circle cx="208" cy="96" r="31" fill="#0d63cf" stroke="#8ee8ff" stroke-width="2"/>
+        <circle cx="208" cy="96" r="12" fill="none" stroke="#fff" stroke-width="3"/>
+        <path d="m217 105 9 9" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        <text x="208" y="151" font-size="13" font-weight="700">ROOT CAUSE</text>
+        <circle cx="336" cy="96" r="31" fill="#0d63cf" stroke="#8ee8ff" stroke-width="2"/>
+        <path d="m322 96 9 9 19-21" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="336" y="151" font-size="13" font-weight="700">SAFE FIX</text>
+      </g>
+      <text x="209" y="185" text-anchor="middle" font-size="13" fill="#c5ecff">Read-only diagnosis · user-approved local changes</text>
+    </g>
+  </g>
+</svg>
