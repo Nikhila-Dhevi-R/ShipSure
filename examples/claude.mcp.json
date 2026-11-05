@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "shipsure": {
+      "command": "shipsure-mcp",
+      "args": []
+    }
+  }
+}

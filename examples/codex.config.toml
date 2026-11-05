@@ -1,0 +1,4 @@
+# Merge into ~/.codex/config.toml after installing ShipSure.
+[mcp_servers.shipsure]
+command = "shipsure-mcp"
+args = []
