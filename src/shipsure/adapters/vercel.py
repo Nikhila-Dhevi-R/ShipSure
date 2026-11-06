@@ -20,6 +20,7 @@ from shipsure.security import redact_secrets
 API_ROOT = "https://api.vercel.com"
 MAX_PROVIDER_RESPONSE = 4_000_000
 MAX_RUNTIME_LOG_BYTES = 4_000_000
+_ENVIRONMENT_CAP_LIMITATION = "Vercel environment metadata was capped at 500 entries; absence of a name beyond the cap is inconclusive."
 _PROJECT_FIELDS = (
     "id",
     "name",
@@ -164,13 +165,7 @@ class VercelReadOnlyAdapter:
                     kind="provider",
                 )
             )
-        limitations = (
-            [
-                "Vercel environment metadata was capped at 500 entries; absence of a name beyond the cap is inconclusive."
-            ]
-            if len(rows) >= 500
-            else []
-        )
+        limitations = [_ENVIRONMENT_CAP_LIMITATION] if len(rows) >= 500 else []
         return ProviderReport(
             provider="vercel",
             target=f"project:{project_id}/environment-metadata",
@@ -292,9 +287,7 @@ class VercelReadOnlyAdapter:
                 r"(?i)Environment Variable\s+([A-Z][A-Z0-9_]*)\s+(?:not found|is missing)",
                 "\n".join(event_lines),
             )
-            environment_is_capped = any(
-                "response limit" in item.lower() for item in environment_report.limitations
-            )
+            environment_is_capped = _ENVIRONMENT_CAP_LIMITATION in environment_report.limitations
             for variable in sorted(set(missing_env_logs)):
                 matched_finding = next(
                     (
