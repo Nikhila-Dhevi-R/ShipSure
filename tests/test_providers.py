@@ -68,6 +68,34 @@ class FakeAwsClient:
 
 
 class VercelReadOnlyTests(unittest.TestCase):
+    def test_capped_environment_metadata_does_not_support_absence(self) -> None:
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path.endswith("/events"):
+                return httpx.Response(
+                    200, json=[{"text": "Environment Variable DATABASE_URL not found"}]
+                )
+            if request.url.path.endswith("/env"):
+                return httpx.Response(
+                    200,
+                    json={
+                        "env": [{"key": f"VAR_{i}"} for i in range(500)] + [{"key": "DATABASE_URL"}]
+                    },
+                )
+            if request.url.path.startswith("/v9/projects/"):
+                return httpx.Response(200, json={"id": "project_123"})
+            return httpx.Response(200, json={"id": "dpl_example", "readyState": "READY"})
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            adapter = VercelReadOnlyAdapter(token="test-token", client=client)
+            report = adapter.inspect_deployment("dpl_example", project_id="project_123")
+
+        finding = next(d for d in report.diagnoses if d.category == "configuration")
+        self.assertTrue(any("capped" in item for item in report.limitations))
+        self.assertFalse(
+            any("No Vercel environment metadata" in item.excerpt for item in finding.evidence)
+        )
+        self.assertEqual(finding.confidence, 0.9)
+
     def test_reads_env_variable_names_without_returning_secret_values(self) -> None:
         requests: list[httpx.Request] = []
 
